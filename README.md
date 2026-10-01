@@ -6,14 +6,14 @@ FlowVoice is a native macOS app built around a simple interaction: **hold Fn/Glo
 
 Inspired by the hold-to-dictate experience of Wispr Flow, this independent project explores a lightweight approach to everyday dictation and voice-written AI prompts. It combines a SwiftUI menu-bar app, a floating recording HUD, Apple speech recognition, local text formatting, and optional speech and AI providers.
 
-[![Download DMG](https://img.shields.io/badge/Download-v1.0.6%20DMG-blue)](https://github.com/harshith49/fn-voice/releases/download/v1.0.6/FlowVoice-v1.0.6-apple-silicon.dmg)
+[![Download DMG](https://img.shields.io/badge/Download-v1.0.7%20DMG-blue)](https://github.com/harshith49/fn-voice/releases/download/v1.0.7/FlowVoice-v1.0.7-apple-silicon.dmg)
 [![macOS](https://img.shields.io/badge/macOS-14%2B-black)](https://github.com/harshith49/fn-voice/releases/latest)
 [![Architecture](https://img.shields.io/badge/Architecture-Apple%20Silicon-orange)](https://github.com/harshith49/fn-voice/releases/latest)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## Download & Install
 
-**[Download FlowVoice v1.0.6 for Apple Silicon](https://github.com/harshith49/fn-voice/releases/download/v1.0.6/FlowVoice-v1.0.6-apple-silicon.dmg)**
+**[Download FlowVoice v1.0.7 for Apple Silicon](https://github.com/harshith49/fn-voice/releases/download/v1.0.7/FlowVoice-v1.0.7-apple-silicon.dmg)**
 
 No cloning, compiler, or source checkout is needed.
 
@@ -37,16 +37,16 @@ If **Open Anyway** is missing, try opening the Applications copy once more, then
 
 | Release | Details |
 | --- | --- |
-| Version | 1.0.6 |
+| Version | 1.0.7 |
 | Platform | macOS 14 or later |
 | Architecture | Apple Silicon / arm64 |
-| Installer | `FlowVoice-v1.0.6-apple-silicon.dmg` |
-| Size | 61,667,761 bytes |
+| Installer | `FlowVoice-v1.0.7-apple-silicon.dmg` |
+| Size | 61,591,818 bytes |
 
 **SHA-256**
 
 ```text
-42deb1b3cc5cf5b1fe5a4a38710bb788ee706b1edb704eb57bde29a31915f99b
+899ac24138bab154b8ac0465aded1f3a4462d9307efe2904a16e3cdf7ae622fc
 ```
 
 ## What You Can Do
@@ -59,19 +59,17 @@ These are rule-based formatting features; they do not promise the full grammatic
 
 ### Write prompts for Codex and other AI apps
 
-Use **Voice-to-Prompt** to speak an instruction and insert a formatted prompt into your AI app. Prompt formatting runs locally, needs no API key, and makes no AI-provider call—even if a cloud provider is selected in Settings.
+Use **Voice-to-Prompt** to speak an instruction and insert a formatted prompt into your AI app. Prompt formatting runs locally, without an API key or an AI-provider call.
 
 For example, say:
 
 > Build a login page with email and password.
 
-FlowVoice inserts:
+FlowVoice inserts only your cleaned instruction:
 
 ```text
 Task:
 Build a login page with email and password.
-
-Follow the instruction above. Ask for clarification only if essential information is missing.
 ```
 
 Review and submit the prompt in Codex or your chosen AI app. FlowVoice prepares the instruction; the receiving app executes it.
@@ -110,22 +108,15 @@ flowchart TD
 | Permission handling | Live permission refresh, a working Check Again action, and restart/recovery instructions |
 | Local history | Review, search, and copy previous dictations and prompts |
 | Formatting settings | Control filler removal and capitalization |
-| Optional customization | Personal vocabulary and a custom system prompt for provider-based processing |
+| Personal vocabulary | Applies your preferred capitalization to recognized technical terms |
 
 Insertion depends on the target editor accepting Accessibility updates or paste events. Keep the cursor in the field where you want the result.
 
 ## Speech & Processing Options
 
-The default path uses bundled **Whisper base.en (quantized)** and **Built-in Fast Path** formatting. Transcription and prompt formatting run on your Mac, with no API key, subscription, per-minute charge, or runtime model download. The bundled model currently targets English. Choose Apple On-Device in Settings if you prefer its lower-latency path over Whisper accuracy.
+The default path uses bundled **Whisper base.en (quantized)** and local rule-based formatting. The app contains no cloud-provider code, API-key field, or network transcription path. There is no API key, subscription, per-minute charge, or runtime model download. The bundled model targets English. If Whisper labels audible speech as non-speech, FlowVoice can retry with Apple's on-device recognizer; it will never switch to an online recognizer. You can also select Apple On-Device as your main engine in Settings.
 
-Additional options are available in Settings:
-
-- **Local Whisper:** bundled in the DMG, with its English model and Apple Silicon Metal support.
-- **Groq / OpenAI speech recognition:** transcribe using your own API key.
-- **Local Ollama:** use a separately running local model for provider-based text processing.
-- **Groq / OpenAI text processing:** optionally polish dictation using your own API key.
-
-Ollama requires a separate local installation. Optional cloud speech and text processing may incur provider charges and send the relevant audio or text to that provider; FlowVoice does not include an API key or use these services by default. **Voice-to-Prompt formatting itself stays local.**
+Voice-to-Prompt formats your spoken words into a short instruction for the target app. It does not generate the answer itself. Empty audio and labels such as `[BLANK_AUDIO]`, `(Humming)`, and `(Singing in foreign language)` are not inserted or saved as prompts.
 
 ## Recent Improvements
 
@@ -138,6 +129,8 @@ Ollama requires a separate local installation. Optional cloud speech and text pr
 - Added installation-location guidance to avoid permission mismatches between app copies.
 - Switched insertion to ordinary paste for native, browser, and Electron editors, including Antigravity-style input fields.
 - Bundled an offline Whisper engine and model in the DMG; removed the separate server/CLI requirement.
+- Removed cloud-provider and API-key code; recognition and prompt formatting now stay local.
+- Filtered empty audio and non-speech labels before they can become prompts or history entries.
 - Verified the DMG's integrity, mount behavior, bundle signature, and an offline sample transcription.
 
 Physical dictation behavior and latency vary by microphone, recognition engine, language, and target app. Whisper can be slower on the first recording while Metal initializes. No benchmark claim against Wispr Flow is made.
@@ -149,6 +142,7 @@ Physical dictation behavior and latency vary by microphone, recognition engine, 
 3. If macOS shows Accessibility enabled but FlowVoice reports denied, remove the old FlowVoice permission entry, add the installed Applications copy, enable it, and restart.
 4. Click into the target text field again and hold Fn through the whole phrase.
 5. Use **Paste Last Transcript** or copy the text from **History** if the editor rejects automatic insertion.
+6. If the recording HUD does not react to your voice, check **System Settings → Sound → Input** and select the microphone you intend to use. Empty or non-speech recordings are deliberately not inserted.
 
 ## About Me
 
