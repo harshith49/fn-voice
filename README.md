@@ -6,14 +6,14 @@ FlowVoice is a native macOS app built around a simple interaction: **hold Fn/Glo
 
 Inspired by the hold-to-dictate experience of Wispr Flow, this independent project explores a lightweight approach to everyday dictation and voice-written AI prompts. It combines a SwiftUI menu-bar app, a floating recording HUD, Apple speech recognition, local text formatting, and optional speech and AI providers.
 
-[![Download DMG](https://img.shields.io/badge/Download-v1.0.4%20DMG-blue)](https://github.com/harshith49/fn-voice/releases/download/v1.0.4/FlowVoice-v1.0.4-apple-silicon.dmg)
+[![Download DMG](https://img.shields.io/badge/Download-v1.0.5%20DMG-blue)](https://github.com/harshith49/fn-voice/releases/download/v1.0.5/FlowVoice-v1.0.5-apple-silicon.dmg)
 [![macOS](https://img.shields.io/badge/macOS-14%2B-black)](https://github.com/harshith49/fn-voice/releases/latest)
 [![Architecture](https://img.shields.io/badge/Architecture-Apple%20Silicon-orange)](https://github.com/harshith49/fn-voice/releases/latest)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## Download & Install
 
-**[Download FlowVoice v1.0.4 for Apple Silicon](https://github.com/harshith49/fn-voice/releases/download/v1.0.4/FlowVoice-v1.0.4-apple-silicon.dmg)**
+**[Download FlowVoice v1.0.5 for Apple Silicon](https://github.com/harshith49/fn-voice/releases/download/v1.0.5/FlowVoice-v1.0.5-apple-silicon.dmg)**
 
 No cloning, compiler, or source checkout is needed.
 
@@ -27,16 +27,16 @@ The current release is ad-hoc signed rather than Apple-notarized. On first launc
 
 | Release | Details |
 | --- | --- |
-| Version | 1.0.4 |
+| Version | 1.0.5 |
 | Platform | macOS 14 or later |
 | Architecture | Apple Silicon / arm64 |
-| Installer | `FlowVoice-v1.0.4-apple-silicon.dmg` |
-| Size | 1,966,516 bytes |
+| Installer | `FlowVoice-v1.0.5-apple-silicon.dmg` |
+| Size | 1,971,423 bytes |
 
 **SHA-256**
 
 ```text
-cf59e20ef255b49000f51fb22a9425375cc00e42bd5f65aecb7f200115d3f015
+8a4b748768246b1ede2c5e55856904696aebc3758564750a485ee65f8e4d2db6
 ```
 
 ## What You Can Do
@@ -126,6 +126,7 @@ Local services and their models are not bundled in the DMG. Cloud speech and tex
 - Made Voice-to-Prompt work without credentials and clarified what it inserts.
 - Removed temporary WAV-file processing from Apple recognition by passing audio in memory.
 - Added installation-location guidance to avoid permission mismatches between app copies.
+- Fixed insertion into Antigravity's web editor by using its normal paste path and preserving its focused input.
 - Verified the DMG's integrity, mount behavior, and bundle signature, plus packaged prompt-formatting checks.
 
 Physical dictation behavior and latency vary by microphone, recognition engine, language, and target app. No benchmark claim against Wispr Flow is made.
