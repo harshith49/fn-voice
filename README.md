@@ -19,11 +19,21 @@ No cloning, compiler, or source checkout is needed.
 
 1. Download and open the DMG.
 2. Drag **FlowVoice** into **Applications**.
-3. Eject the DMG and open the installed app from Applications.
-4. Grant **Accessibility**, **Microphone**, and **Speech Recognition** access.
-5. Click an editable text field, hold **Fn/Globe**, speak after the recording HUD appears, and release.
+3. Eject the DMG. Open the copy in **Applications**, not the one inside the DMG.
+4. Follow the first-launch steps below if macOS displays a security warning.
+5. Grant **Accessibility**, **Microphone**, and **Speech Recognition** access when prompted.
+6. Click an editable text field, hold **Fn/Globe**, speak after the recording HUD appears, and release.
 
-The current release is ad-hoc signed rather than Apple-notarized. On first launch, use **Control-click → Open**; if macOS blocks it, review the FlowVoice entry in **System Settings → Privacy & Security → Open Anyway**.
+### First launch: “FlowVoice Not Opened”
+
+This release is ad-hoc signed but **not Apple-notarized**. macOS may show “Apple could not verify FlowVoice is free of malware” even though the DMG downloaded successfully. Only continue if you downloaded it from this repository and trust it; you can compare the DMG's SHA-256 checksum below.
+
+1. In the warning, click **Done** (not **Move to Bin**).
+2. Open **System Settings → Privacy & Security** and scroll down to **Security**.
+3. Click **Open Anyway** beside FlowVoice, authenticate if asked, then click **Open** in the confirmation dialog.
+4. Open FlowVoice from **Applications**. You should not have to repeat this for the same installed copy.
+
+If **Open Anyway** is missing, try opening the Applications copy once more, then return to Privacy & Security soon afterward. If you chose **Move to Bin**, reinstall FlowVoice from the DMG and repeat the steps. Do not disable Gatekeeper globally or run a quarantine-removal command. See [Apple's guidance on opening an unnotarized app](https://support.apple.com/en-us/102445).
 
 | Release | Details |
 | --- | --- |
