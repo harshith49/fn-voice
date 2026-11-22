@@ -6,14 +6,14 @@ FlowVoice is a native macOS app built around a simple interaction: **hold Fn/Glo
 
 Inspired by the hold-to-dictate experience of Wispr Flow, this independent project explores a lightweight approach to everyday dictation and voice-written AI prompts. It combines a SwiftUI menu-bar app, a floating recording HUD, Apple speech recognition, local text formatting, and optional speech and AI providers.
 
-[![Download DMG](https://img.shields.io/badge/Download-v1.0.8%20DMG-blue)](https://github.com/harshith49/fn-voice/releases/download/v1.0.8/FlowVoice-v1.0.8-apple-silicon.dmg)
+[![Download DMG](https://img.shields.io/badge/Download-v1.0.9%20DMG-blue)](https://github.com/harshith49/fn-voice/releases/download/v1.0.9/FlowVoice-v1.0.9-apple-silicon.dmg)
 [![macOS](https://img.shields.io/badge/macOS-14%2B-black)](https://github.com/harshith49/fn-voice/releases/latest)
 [![Architecture](https://img.shields.io/badge/Architecture-Apple%20Silicon-orange)](https://github.com/harshith49/fn-voice/releases/latest)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ## Download & Install
 
-**[Download FlowVoice v1.0.8 for Apple Silicon](https://github.com/harshith49/fn-voice/releases/download/v1.0.8/FlowVoice-v1.0.8-apple-silicon.dmg)**
+**[Download FlowVoice v1.0.9 for Apple Silicon](https://github.com/harshith49/fn-voice/releases/download/v1.0.9/FlowVoice-v1.0.9-apple-silicon.dmg)**
 
 No cloning, compiler, or source checkout is needed.
 
@@ -37,16 +37,16 @@ If **Open Anyway** is missing, try opening the Applications copy once more, then
 
 | Release | Details |
 | --- | --- |
-| Version | 1.0.8 |
+| Version | 1.0.9 |
 | Platform | macOS 14 or later |
 | Architecture | Apple Silicon / arm64 |
-| Installer | `FlowVoice-v1.0.8-apple-silicon.dmg` |
-| Size | 61,612,058 bytes |
+| Installer | `FlowVoice-v1.0.9-apple-silicon.dmg` |
+| Size | 61,612,116 bytes |
 
 **SHA-256**
 
 ```text
-c9bb1eebfc0c534c29eeffa0284abe4bd94bdfd19017184d5f39f50dc7e34d1b
+aa1ab7eb4f63d63518ccb99e8ecbfd21d76715fcfdc2ad74450442f408abd2da
 ```
 
 ## What You Can Do
@@ -120,6 +120,7 @@ Voice-to-Prompt formats your spoken words into a short instruction for the targe
 
 ## Recent Improvements
 
+- Removed the Fn hold delay and limited editor focus lookup to 100 ms so slow apps do not block microphone startup.
 - Fixed permission-screen actions that could silently fail under SwiftUI's app delegate wiring.
 - Added diagnostics from the actual running app instead of relying on a terminal permission check.
 - Removed conflicting hotkey monitoring paths and tightened Fn event filtering.
@@ -133,7 +134,7 @@ Voice-to-Prompt formats your spoken words into a short instruction for the targe
 - Filtered empty audio and non-speech labels before they can become prompts or history entries.
 - Verified the DMG's integrity, mount behavior, bundle signature, and an offline sample transcription.
 
-Physical dictation behavior and latency vary by microphone, recognition engine, language, and target app. Version 1.0.8 uses CPU transcription to avoid GPU startup delays and limits processing time to prevent stuck recordings. No benchmark claim against Wispr Flow is made.
+Physical dictation behavior and latency vary by microphone, recognition engine, language, and target app. Version 1.0.9 uses CPU transcription to avoid GPU startup delays and limits processing time to prevent stuck recordings. No benchmark claim against Wispr Flow is made.
 
 ## If Text Does Not Appear
 
